@@ -1,7 +1,7 @@
 import NextAuth, { CredentialsSignin } from "next-auth";
 import { authConfig } from "./auth.config";
 import Credentials from "next-auth/providers/credentials";
-import { SignupFormSchema } from "./lib/definitions";
+import { SignupFormSchema } from "./app/lib/definitions";
 import bcrypt from "bcrypt";
 
 async function getUser(email: string) {

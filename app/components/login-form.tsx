@@ -1,8 +1,8 @@
 "use client";
 
 import { useActionState, useEffect, useState } from "react";
-import Button from "@/components/button";
-import { authenticate } from "@/lib/actions";
+import Button from "@/app/components/button";
+import { authenticate } from "@/app/lib/actions";
 import { useSearchParams } from "next/navigation";
 import {
   ArrowRightIcon,
@@ -10,7 +10,7 @@ import {
   ExclamationCircleIcon,
   KeyIcon,
 } from "@heroicons/react/16/solid";
-import { lusitana } from "@/components/fonts";
+import { lusitana } from "@/app/components/fonts";
 
 // export const dynamic = "force-dynamic";
 

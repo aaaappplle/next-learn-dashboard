@@ -1,5 +1,5 @@
 import { auth } from "@/auth";
-import SideNav from "@/components/sidenav";
+import SideNav from "@/app/components/sidenav";
 
 export default async function Layout({
   children,

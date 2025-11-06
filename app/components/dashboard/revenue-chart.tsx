@@ -1,7 +1,7 @@
-import { generateYAxis } from "@/lib/utils";
+import { generateYAxis } from "@/app/lib/utils";
 import { CalendarIcon } from "@heroicons/react/24/outline";
-import { lusitana } from "@/components/fonts";
-import { fetchRevenue } from "@/lib/data";
+import { lusitana } from "@/app/components/fonts";
+import { fetchRevenue } from "@/app/lib/data";
 
 // This component is representational only.
 // For data visualization UI, check out:
