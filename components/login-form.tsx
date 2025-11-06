@@ -11,18 +11,8 @@ import {
   KeyIcon,
 } from "@heroicons/react/16/solid";
 import { lusitana } from "./fonts";
-import { effect } from "zod/v3";
 
 export const dynamic = "force-dynamic";
-
-// async function loginAction(prevState: string | null, formData: FormData) {
-//   const email = formData.get("email");
-//   const password = formData.get("password");
-//   if (email === "bella@123.com" && password === "123") {
-//     return "Welcome";
-//   }
-//   return "Invalid Credentials";
-// }
 
 const LoginForm = () => {
   const searchParams = useSearchParams();
