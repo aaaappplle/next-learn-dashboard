@@ -1,7 +1,7 @@
 "use client";
 
 import { useActionState, useEffect, useState } from "react";
-import Button from "./button";
+import Button from "@/components/button";
 import { authenticate } from "@/lib/actions";
 import { useSearchParams } from "next/navigation";
 import {
@@ -10,7 +10,7 @@ import {
   ExclamationCircleIcon,
   KeyIcon,
 } from "@heroicons/react/16/solid";
-import { lusitana } from "./fonts";
+import { lusitana } from "@/components/fonts";
 
 // export const dynamic = "force-dynamic";
 
