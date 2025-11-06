@@ -1,7 +1,7 @@
 "use client";
 
 import { useActionState, useEffect, useState } from "react";
-import Button from "./Button";
+import Button from "./button";
 import { authenticate } from "@/lib/actions";
 import { useSearchParams } from "next/navigation";
 import {
@@ -12,7 +12,7 @@ import {
 } from "@heroicons/react/16/solid";
 import { lusitana } from "./fonts";
 
-export const dynamic = "force-dynamic";
+// export const dynamic = "force-dynamic";
 
 const LoginForm = () => {
   const searchParams = useSearchParams();
