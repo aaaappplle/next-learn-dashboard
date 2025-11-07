@@ -27,12 +27,18 @@ importers:
       next-auth:
         specifier: 5.0.0-beta.30
         version: 5.0.0-beta.30(next@16.0.1(@babel/core@7.28.4)(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(react@19.2.0)
+      postgres:
+        specifier: ^3.4.7
+        version: 3.4.7
       react:
         specifier: 19.2.0
         version: 19.2.0
       react-dom:
         specifier: 19.2.0
         version: 19.2.0(react@19.2.0)
+      use-debounce:
+        specifier: ^10.0.6
+        version: 10.0.6(react@19.2.0)
       zod:
         specifier: ^4.1.12
         version: 4.1.12
@@ -2613,6 +2619,10 @@ packages:
     resolution: {integrity: sha512-3Ybi1tAuwAP9s0r1UQ2J4n5Y0G05bJkpUIO0/bI9MhwmD70S5aTWbXGBwxHrelT+XM1k6dM0pk+SwNkpTRN7Pg==}
     engines: {node: ^10 || ^12 || >=14}
 
+  postgres@3.4.7:
+    resolution: {integrity: sha512-Jtc2612XINuBjIl/QTWsV5UvE8UHuNblcO3vVADSrKsrc6RqGX6lOW1cEo3CM2v0XG4Nat8nI+YM7/f26VxXLw==}
+    engines: {node: '>=12'}
+
   preact-render-to-string@6.5.11:
     resolution: {integrity: sha512-ubnauqoGczeGISiOh6RjX0/cdaF8v/oDXIjO85XALCQjwQP+SB4RDXXtvZ6yTYSjG+PC1QRP2AhPgCEsM2EvUw==}
     peerDependencies:
@@ -3041,6 +3051,12 @@ packages:
 
   uri-js@4.4.1:
     resolution: {integrity: sha512-7rKUyy33Q1yc98pQ1DAmLtwX109F7TIfWlW1Ydo8Wl1ii1SeHieeh0HHfPeL2fMXK6z0s8ecKs9frCuLJvndBg==}
+
+  use-debounce@10.0.6:
+    resolution: {integrity: sha512-C5OtPyhAZgVoteO9heXMTdW7v/IbFI+8bSVKYCJrSmiWWCLsbUxiBSp4t9v0hNBTGY97bT72ydDIDyGSFWfwXg==}
+    engines: {node: '>= 16.0.0'}
+    peerDependencies:
+      react: '*'
 
   v8-compile-cache-lib@3.0.1:
     resolution: {integrity: sha512-wa7YjyUGfNZngI/vtK0UHAN+lgDCxBPCylVXGp0zu59Fz5aiGtNXaq3DhIov063MorB+VfufLh3JlF2KdTK3xg==}
@@ -6091,6 +6107,8 @@ snapshots:
       picocolors: 1.1.1
       source-map-js: 1.2.1
 
+  postgres@3.4.7: {}
+
   preact-render-to-string@6.5.11(preact@10.24.3):
     dependencies:
       preact: 10.24.3
@@ -6618,6 +6636,10 @@ snapshots:
   uri-js@4.4.1:
     dependencies:
       punycode: 2.3.1
+
+  use-debounce@10.0.6(react@19.2.0):
+    dependencies:
+      react: 19.2.0
 
   v8-compile-cache-lib@3.0.1: {}
 

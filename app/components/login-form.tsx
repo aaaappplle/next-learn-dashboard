@@ -12,8 +12,6 @@ import {
 } from "@heroicons/react/16/solid";
 import { lusitana } from "@/app/components/fonts";
 
-// export const dynamic = "force-dynamic";
-
 const LoginForm = () => {
   const searchParams = useSearchParams();
   const callbackUrl = searchParams.get("callbackUrl") || "/dashboard";

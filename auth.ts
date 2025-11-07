@@ -1,16 +1,21 @@
 import NextAuth, { CredentialsSignin } from "next-auth";
 import { authConfig } from "./auth.config";
 import Credentials from "next-auth/providers/credentials";
-import { SignupFormSchema } from "./app/lib/definitions";
+import { SignupFormSchema, User } from "./app/lib/definitions";
 import bcrypt from "bcrypt";
+import postgres from "postgres";
 
-async function getUser(email: string) {
-  if (email === "bella@123.com") {
-    return { userId: "1", email, password: await bcrypt.hash("12abC@", 10) };
+const sql = postgres(process.env.POSTGRES_URL!, { ssl: "require" });
+
+async function getUser(email: string): Promise<User | undefined> {
+  try {
+    const user = await sql<User[]>`SELECT * FROM users WHERE email=${email}`;
+    return user[0];
+  } catch (error) {
+    console.error("Failed to fetch user:", error);
+    throw new Error("Failed to fetch user.");
   }
-  return null;
 }
-
 class CustomError extends CredentialsSignin {
   code = "custom_error";
 }
