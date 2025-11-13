@@ -18,6 +18,10 @@ async function getUser(email: string): Promise<User | undefined> {
 }
 class CustomError extends CredentialsSignin {
   code = "custom_error";
+  constructor(message: string) {
+    super();
+    this.message = message;
+  }
 }
 
 export const { signIn, signOut, auth } = NextAuth({
@@ -25,20 +29,23 @@ export const { signIn, signOut, auth } = NextAuth({
   providers: [
     Credentials({
       async authorize(credentials) {
-        const validedFileds = SignupFormSchema.safeParse(credentials);
-        if (validedFileds.success) {
-          const { email, password } = validedFileds.data;
-          const user = await getUser(email);
-
-          if (!user) return new CustomError();
-
-          const passwordsMatch = await bcrypt.compare(password, user.password);
-          if (!passwordsMatch) return new CustomError();
-
-          return user;
+        const validatedFields = SignupFormSchema.safeParse(credentials);
+        if (!validatedFields.success) {
+          throw new CustomError("Invalid input format");
         }
 
-        return null;
+        const { email, password } = validatedFields.data;
+        const user = await getUser(email);
+
+        if (!user) {
+          throw new CustomError("Email not found");
+        }
+
+        const passwordsMatch = await bcrypt.compare(password, user.password);
+        if (!passwordsMatch) {
+          throw new CustomError("Password incorrect");
+        }
+        return user;
       },
     }),
   ],
