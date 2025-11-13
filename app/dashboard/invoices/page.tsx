@@ -5,7 +5,12 @@ import Table from "@/app/components/invoices/table";
 import Search from "@/app/components/search";
 import { InvoicesTableSkeleton } from "@/app/components/skeleton";
 import { fetchInvoicesPages } from "@/app/lib/data";
+import { Metadata } from "next";
 import { Suspense } from "react";
+
+export const metadata: Metadata = {
+  title: "Invoices",
+};
 
 export default async function Page(props: {
   searchParams?: Promise<{
