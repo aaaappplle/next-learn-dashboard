@@ -89,7 +89,7 @@ export type InvoiceForm = {
 };
 
 export const SignupFormSchema = z.object({
-  email: z.email({ error: "Please enter a valid email." }).trim(),
+  email: z.email({ error: "Please enter a valid email." }),
   password: z
     .string()
     .min(6, { error: "Be at least 8 characters long" })
