@@ -6,6 +6,7 @@ import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import postgres from "postgres";
 import z from "zod";
+import { CustomError } from "./authorize";
 
 const sql = postgres(process.env.POSTGRES_URL!, { ssl: "require" });
 
@@ -43,12 +44,7 @@ export async function authenticate(
     await signIn("credentials", formData);
   } catch (error) {
     if (error instanceof AuthError) {
-      switch (error.type) {
-        case "CredentialsSignin":
-          return error.message || "Invalid credentials.";
-        default:
-          return "Something went wrong.";
-      }
+      return error.cause?.message || "Invalid credentials.";
     }
     throw error;
   }
