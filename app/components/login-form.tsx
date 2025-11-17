@@ -1,6 +1,6 @@
 "use client";
 
-import { useActionState, useEffect, useState } from "react";
+import { useActionState, useState } from "react";
 import Button from "@/app/components/button";
 import { authenticate } from "@/app/lib/actions";
 import { useSearchParams } from "next/navigation";
@@ -15,10 +15,10 @@ import { lusitana } from "@/app/components/fonts";
 const LoginForm = () => {
   const searchParams = useSearchParams();
   const callbackUrl = searchParams.get("callbackUrl") || "/dashboard";
-  const [errorMessage, formAction, isPending] = useActionState(
-    authenticate,
-    undefined
-  );
+  const [errorMessage, formAction, isPending] = useActionState<
+    string | undefined,
+    FormData
+  >(authenticate, undefined);
   const [form, setForm] = useState({ email: "", password: "" });
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {

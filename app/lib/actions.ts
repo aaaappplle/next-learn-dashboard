@@ -39,12 +39,12 @@ export type State = {
 export async function authenticate(
   prevState: string | undefined,
   formData: FormData
-) {
+): Promise<string | undefined> {
   try {
     await signIn("credentials", formData);
   } catch (error) {
     if (error instanceof AuthError) {
-      return error.cause?.message || "Invalid credentials.";
+      return (error.cause?.message as string) || "Invalid credentials.";
     }
     throw error;
   }
