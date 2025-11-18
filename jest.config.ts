@@ -30,6 +30,11 @@ const config: Config = {
   moduleNameMapper: {
     "^@/(.*)$": "<rootDir>/$1", // map @/ to the project root
   },
+
+  testPathIgnorePatterns: [
+    "/node_modules/",
+    "/e2e/", // ignore Playwright tests folder
+  ],
 };
 
 export default createJestConfig(config);
