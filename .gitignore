@@ -14,6 +14,7 @@
 /coverage
 /test-results
 /playwright-reporter
+/e2e/storage
 
 # next.js
 /.next/

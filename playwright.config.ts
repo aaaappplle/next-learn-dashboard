@@ -17,9 +17,7 @@ export default defineConfig({
   outputDir: "test-results/",
   workers: process.env.CI ? 2 : undefined,
   reporter: [["list"], ["html", { outputFolder: "playwright-reporter" }]],
-  globalSetup: path.resolve("./e2e/setup/global-setup"),
   use: {
-    storageState: "./e2e/setup/state.json",
     headless: true,
     baseURL,
     trace: "on-first-retry",
@@ -29,16 +27,40 @@ export default defineConfig({
   },
   projects: [
     {
-      name: "Desktop Chrome",
+      name: "setup",
+      testMatch: "setup/**/*.setup.ts",
+    },
+    {
+      name: "Authenticated Desktop Chrome",
+      use: {
+        ...devices["Desktop Chrome"],
+        storageState: "e2e/storage/state.json",
+      },
+      dependencies: ["setup"],
+      testMatch: "auth/**/*.spec.ts",
+    },
+    {
+      name: "Authenticated Mobile Chrome",
+      use: {
+        ...devices["Pixel 5"],
+        storageState: "e2e/storage/state.json",
+      },
+      dependencies: ["setup"],
+      testMatch: "auth/**/*.spec.ts",
+    },
+    {
+      name: "Public Desktop Chrome",
       use: {
         ...devices["Desktop Chrome"],
       },
+      testMatch: "public/**/*.spec.ts",
     },
     {
-      name: "Mobile Chrome",
+      name: "Public Mobile Chrome",
       use: {
         ...devices["Pixel 5"],
       },
+      testMatch: "public/**/*.spec.ts",
     },
   ],
   webServer: {
