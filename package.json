@@ -16,7 +16,7 @@
     "bcrypt": "^6.0.0",
     "clsx": "^2.1.1",
     "dotenv": "^17.2.3",
-    "next": "16.0.1",
+    "next": "16.0.10",
     "next-auth": "5.0.0-beta.30",
     "postgres": "^3.4.7",
     "react": "19.2.0",
@@ -50,5 +50,6 @@
       "@types/react": "19.2.2",
       "@types/react-dom": "19.2.2"
     }
-  }
+  },
+  "packageManager": "pnpm@10.25.0+sha512.5e82639027af37cf832061bcc6d639c219634488e0f2baebe785028a793de7b525ffcd3f7ff574f5e9860654e098fe852ba8ac5dd5cefe1767d23a020a92f501"
 }
